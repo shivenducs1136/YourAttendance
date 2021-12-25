@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.kenvent.yourattendance.ui.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_addSubjectFragment"
+            app:destination="@id/addSubjectFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"
+
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addSubjectFragment"
+        android:name="com.kenvent.yourattendance.ui.AddSubjectFragment"
+        android:label="AddSubjectFragment" >
+        <action
+            android:id="@+id/action_addSubjectFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.kenvent.yourattendance.ui.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu"
+        app:popExitAnim="@anim/slide_out_left"
+        >
+        <action
+            android:id="@+id/action_menuFragment_to_feedBackFragment"
+            app:destination="@id/feedBackFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"
+            />
+        <action
+            android:id="@+id/action_menuFragment_to_devContactFragment"
+            app:destination="@id/devContactFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"
+            />
+        <action
+            android:id="@+id/xml"
+            app:destination="@id/cwg_nav_graph.xml" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedBackFragment"
+        android:name="com.kenvent.yourattendance.ui.FeedBackFragment"
+        android:label="fragment_feed_back"
+        tools:layout="@layout/fragment_feed_back"
+        app:popExitAnim="@anim/slide_out_left"/>
+    <fragment
+        android:id="@+id/devContactFragment"
+        android:name="com.kenvent.yourattendance.ui.DevContactFragment"
+        android:label="DevContactFragment"
+        app:popExitAnim="@anim/slide_out_left"
+        />
+    <include app:graph="@navigation/cwg_nav_graph" />
+</navigation>

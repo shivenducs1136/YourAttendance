@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "110392815421",
+    "project_id": "yourattendance-a6173",
+    "storage_bucket": "yourattendance-a6173.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110392815421:android:4af3ea8da0b04057569f54",
+        "android_client_info": {
+          "package_name": "com.kenvent.yourattendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110392815421-3763v8rgtc67pd060r8qh65hge78u8ev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoxPZKzBJOASN8Ja8NfgA91WfBQxDSdBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110392815421-3763v8rgtc67pd060r8qh65hge78u8ev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
