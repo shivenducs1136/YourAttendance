@@ -41,7 +41,7 @@ class DevContactFragment : Fragment() {
         }
         binding.github.setOnClickListener {
             val openURL = Intent(android.content.Intent.ACTION_VIEW)
-            openURL.data = Uri.parse("https://github.com/shivenducs1136")
+            openURL.data = Uri.parse("https://github.com/shivenducs1136/YourAttendance.git")
             startActivity(openURL)
         }
 

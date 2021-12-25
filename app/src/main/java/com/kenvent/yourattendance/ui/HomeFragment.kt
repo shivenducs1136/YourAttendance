@@ -94,7 +94,6 @@ class HomeFragment : Fragment() {
                 totsum = totsum + currsub.TotalClasses.toInt()
             }
             if (sum == 0) {
-
                 binding.nocontent.visibility = View.VISIBLE
                 binding.overallProgressBarGreen.visibility = View.GONE
                 binding.overallPercent.visibility = View.GONE
