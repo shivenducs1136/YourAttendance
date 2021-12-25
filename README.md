@@ -44,7 +44,7 @@ gradlew installDebug
 * Directions to execute
 -  To launch hands free, run the following using command line tools
 	```bash
-	adb shell monkey -p com.kenvent.yourattendance.ui -c android.intent.category.LAUNCHER 1
+	adb shell monkey -p com.kenvent.yourattendance -c android.intent.category.LAUNCHER 1
 	```
 
 <br>
