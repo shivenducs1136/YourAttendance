@@ -16,18 +16,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.*
-import com.kenvent.yourattendance.MainActivity
 import com.kenvent.yourattendance.R
 import com.kenvent.yourattendance.SplashActivity
 import com.kenvent.yourattendance.databinding.FragmentMenuBinding
 import com.kenvent.yourattendance.entity.SubjectEnitity
 import com.kenvent.yourattendance.entity.Subjects
 import com.kenvent.yourattendance.viewmodel.SubjectViewModel
-import java.lang.Exception
-import java.util.*
 import kotlin.collections.ArrayList
-
-
 class MenuFragment : Fragment() {
 
     private lateinit var binding: FragmentMenuBinding
@@ -103,7 +98,7 @@ class MenuFragment : Fragment() {
                     viewModel.deleteall()
                     database.addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            for (datasnapshot: DataSnapshot in snapshot.child(signInAccount.displayName)
+                            for (datasnapshot: DataSnapshot in snapshot.child(getonlycharString(signInAccount.displayName))
                                 .child("Subjects").children) {
                                 var subject: Subjects? = datasnapshot.getValue(Subjects::class.java)
                                 if (subject != null) {
@@ -148,6 +143,8 @@ class MenuFragment : Fragment() {
                         binding.loadinglottie.visibility = View.GONE
                         Snackbar.make(binding.root, "Restored Successfully", Snackbar.LENGTH_SHORT)
                             .show()
+                        // timer
+
                     }
                 } else if (flag == 0) {
                     Snackbar.make(
@@ -160,7 +157,7 @@ class MenuFragment : Fragment() {
             }
         }
         else{
-            binding.settingsLogout1.text= "Login"
+            binding.settingsLogout1.text= " Login"
             binding.settingsLogout1.setOnClickListener {
                 findNavController().navigate(R.id.cwg_nav_graph_xml)
             }
@@ -187,6 +184,14 @@ class MenuFragment : Fragment() {
         val cm = activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null
     }
-
+    fun getonlycharString(str:String): String{
+        var mystring:String =""
+        for(i in str){
+            if(i in 'A'..'Z' || i in 'a'..'z' || i==' '){
+                mystring+=i
+            }
+        }
+        return mystring
+    }
 
 }

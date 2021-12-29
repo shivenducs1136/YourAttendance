@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Overall Attendance Criteria "
+        android:textColor="@color/black"
+        android:id="@+id/overall_criteria"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="75%"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/myslider"
+        app:layout_constraintBottom_toBottomOf="@+id/myslider"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/myslider_percentage"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/myslider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="Attendance Criteria"
+        android:value="75"
+        android:layout_margin="20dp"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:stepSize="5"
+        app:layout_constraintTop_toBottomOf="@+id/overall_criteria"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/myslider_percentage"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

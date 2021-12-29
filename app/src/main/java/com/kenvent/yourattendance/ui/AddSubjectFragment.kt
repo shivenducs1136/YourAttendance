@@ -161,9 +161,7 @@ class AddSubjectFragment : Fragment() {
 
 
         var per = (present.toFloat()/totalclass.toFloat()) * 100
-//        Log.e("present",present.toString())
-//        Log.e("total",totalclass.toString())
-//        Log.e("percentage",per.toString())
+
         var status: String = ""
         var totcl : Int = totalclass
         var pres : Int = present

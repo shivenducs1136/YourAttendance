@@ -20,6 +20,7 @@ import android.net.NetworkInfo
 import androidx.core.content.ContextCompat.getSystemService
 
 import android.net.ConnectivityManager
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import java.lang.Exception
@@ -57,7 +58,8 @@ class FeedBackFragment : Fragment() {
                         var signInAccount: GoogleSignInAccount =
                             GoogleSignIn.getLastSignedInAccount(this.requireContext())
                         if (signInAccount != null) {
-                            database.child("Feedback").child(signInAccount.displayName).child(ss).setValue(s)
+                            Log.e("NAME",getonlycharString(signInAccount.displayName))
+                            database.child("Feedback").child(getonlycharString(signInAccount.displayName)).child(ss).setValue(s)
                             binding.loadinglottie1.visibility = View.GONE
                             Toast.makeText(
                                 requireContext(),
@@ -90,5 +92,13 @@ class FeedBackFragment : Fragment() {
         val cm = activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null
     }
-
+    fun getonlycharString(str:String): String{
+        var mystring:String =""
+        for(i in str){
+            if(i in 'A'..'Z' || i in 'a'..'z' || i==' '){
+                mystring+=i
+            }
+        }
+        return mystring
+    }
 }

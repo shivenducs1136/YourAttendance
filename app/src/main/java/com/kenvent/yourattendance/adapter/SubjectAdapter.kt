@@ -126,7 +126,6 @@ class SubjectAdapter(val context: Context, val listener: HomeFragment): Recycler
                 holder.subjectpresent.setOnClickListener {
                     currdatetime = getDateTime().toString()
                     listener.updateSubject(currentsubject.SubjectName,status,"${currentsubject.TotalClasses.toInt()+1}","${currentsubject.AttendedClasses.toInt()+1}",currdatetime)
-//                    listener.anackbar("Marked Present")
                     listener.gottyanim(1)
                     stack.add(true)
                 }
@@ -163,6 +162,9 @@ class SubjectAdapter(val context: Context, val listener: HomeFragment): Recycler
                             listener.anackbar("Reverted Changes")
                         }
                         stack.removeLast()
+                    }
+                    else{
+                        listener.anackbar("Nothing to revert.")
                     }
                 }
             }

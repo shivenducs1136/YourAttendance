@@ -11,21 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Last Update : 20/32/43 30:43:54"
-            android:textSize="8dp"
-            android:maxLines="2"
-            android:layout_marginRight="5dp"
-            app:layout_constraintRight_toLeftOf="@+id/subject_ProgressBar_red"
-            android:autoSizeTextType="none"
-            app:layout_constraintTop_toTopOf="@+id/edit_update"
-            app:layout_constraintLeft_toRightOf="@+id/edit_update"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/lasty"
-            app:layout_constraintBottom_toBottomOf="@+id/edit_update"
-            />
+
 
         <ImageView
             android:layout_width="wrap_content"
@@ -91,24 +77,12 @@
             android:textColor="#676666"
             android:id="@+id/attendance_txt"
             app:layout_constraintTop_toBottomOf="@+id/red_attandance_bar"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_margin="10dp"
             android:textStyle="bold"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LastUpdate 32904359"
-            app:layout_constraintTop_toBottomOf="@+id/subject_name"
-            app:layout_constraintRight_toLeftOf="@+id/subject_ProgressBar"
-            android:textSize="8dp"
-            android:visibility="gone"
-            android:id="@+id/last_update"
-            android:maxLines="1"
-            android:textColor="#757474"
-            android:layout_marginRight="10dp"
-            />
+
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/subject_ProgressBar_green"
             android:layout_width="80dp"
@@ -198,13 +172,14 @@
             android:textColor="#676666"
             android:id="@+id/status_txt"
             app:layout_constraintTop_toBottomOf="@+id/attendance_txt"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:textStyle="bold"
+            android:layout_marginBottom="10dp"
             />
         <TextView
             android:layout_width="0dp"
@@ -214,13 +189,30 @@
             android:textColor="@color/black"
             android:id="@+id/status"
             android:maxWidth="200dp"
+            app:layout_constraintRight_toLeftOf="@+id/subject_ProgressBar_red"
             android:maxLines="2"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintTop_toTopOf="@+id/status_txt"
             app:layout_constraintBottom_toBottomOf="@+id/status_txt"
             app:layout_constraintLeft_toRightOf="@+id/status_txt"
             />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Last Update : 20/32/43 30:43:54"
+            android:textSize="6sp"
+            app:layout_constraintLeft_toLeftOf="@+id/subject_ProgressBar_green"
+            android:maxLines="2"
+            android:layout_marginRight="5dp"
+            android:autoSizeTextType="none"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/lasty"
+            app:layout_constraintBottom_toTopOf="@+id/subject_update"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
 
+            />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/subject_update"
             android:layout_width="match_parent"

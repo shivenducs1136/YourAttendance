@@ -29,6 +29,7 @@ import android.widget.TextView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignIn.getLastSignedInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.material.slider.Slider
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.kenvent.yourattendance.MainActivity
@@ -49,8 +50,10 @@ class HomeFragment : Fragment() {
     var status : String =""
     var currdatetime: String = ""
     var flag :Int = 0
+    var f:Int=0
     lateinit var database : DatabaseReference
     lateinit var allmySubject :List<SubjectEnitity>
+    var overall_Criteria="75"
     lateinit var currsub:SubjectEnitity
     lateinit var signInAccount: GoogleSignInAccount
     override fun onCreateView(
@@ -114,14 +117,20 @@ class HomeFragment : Fragment() {
             per = roundOffDecimal(per)
             binding.overallRatio.text = "${sum}/${totsum}"
             binding.overallPercent.text = "${per}%"
-            if (sum != 0 && it[0].criteria_percentage.isNotEmpty() && per.toString().isNotEmpty()) {
-                if (per.toFloat() > it[0].criteria_percentage.toFloat() + 3) {
+            binding.myclicky.setOnClickListener {
+                    showslider(sum,per)
+            }
+            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return@Observer
+            overall_Criteria = sharedPref.getFloat("overall_criteria", 75.0F).toString()
+            Log.e("OVERALL", overall_Criteria)
+            if (sum != 0 && overall_Criteria.isNotEmpty() && per.toString().isNotEmpty()) {
+                if (per.toFloat() > overall_Criteria.toFloat() + 3) {
                     binding.overallProgressBarGreen.visibility = View.VISIBLE
                     binding.overallProgressBarGreen.progress = per.toInt()
                     binding.overallProgressBarYellow.visibility = View.INVISIBLE
                     binding.overallProgressBarRed.visibility = View.INVISIBLE
 
-                } else if (per.toFloat() >= it[0].criteria_percentage.toFloat() - 1 && per.toFloat() <= it[0].criteria_percentage.toFloat() + 3) {
+                } else if (per.toFloat() >= overall_Criteria.toFloat() - 1 && per.toFloat() <= overall_Criteria.toFloat() + 3) {
                     binding.overallProgressBarYellow.visibility = View.VISIBLE
                     binding.overallProgressBarYellow.progress = per.toInt()
                     binding.overallProgressBarGreen.visibility = View.INVISIBLE
@@ -187,11 +196,11 @@ class HomeFragment : Fragment() {
         }
         if(getLastSignedInAccount(contex)!=null) {
             signInAccount = getLastSignedInAccount(contex)
-            database.child(signInAccount.displayName).child("Subjects").child(subname).child("SubjectName").setValue(subname)
-            database.child(signInAccount.displayName).child("Subjects").child(subname).child("TotalClasses").setValue(totclas)
-            database.child(signInAccount.displayName).child("Subjects").child(subname).child("AttendedClasses").setValue(presclas)
-            database.child(signInAccount.displayName).child("Subjects").child(subname).child("CriteriaPercentage").setValue(criper)
-            database.child(signInAccount.displayName).child("Subjects").child(subname).child("status").setValue(stat)
+            database.child(getonlycharString(signInAccount.displayName)).child("Subjects").child(subname).child("SubjectName").setValue(subname)
+            database.child(getonlycharString(signInAccount.displayName)).child("Subjects").child(subname).child("TotalClasses").setValue(totclas)
+            database.child(getonlycharString(signInAccount.displayName)).child("Subjects").child(subname).child("AttendedClasses").setValue(presclas)
+            database.child(getonlycharString(signInAccount.displayName)).child("Subjects").child(subname).child("CriteriaPercentage").setValue(criper)
+            database.child(getonlycharString(signInAccount.displayName)).child("Subjects").child(subname).child("status").setValue(stat)
         }else{
 //            Snackbar.make(binding.root,"Please Signin to Save Data", Snackbar.LENGTH_SHORT).show()
         }
@@ -293,45 +302,80 @@ class HomeFragment : Fragment() {
             },2000)
         }
     }
+    fun showslider(sum:Int,per:Double){
+        val alert = AlertDialog.Builder(requireContext())
+        val factory = LayoutInflater.from(requireContext())
+        val textEntryView: View = factory.inflate(R.layout.slider, null)
+        val input2 = textEntryView.findViewById(R.id.myslider) as Slider
+        val input1 = textEntryView.findViewById(R.id.myslider_percentage) as TextView
+        var sliderValue : String =""
+        input2.addOnChangeListener{slider,value,fromUser->
+            sliderValue = input2.value.toString()
+            input1.text = "$sliderValue %"
+        }
+
+//        input2.setText(null, TextView.BufferType.EDITABLE)
+        alert.setIcon(com.kenvent.yourattendance.R.drawable.ic_baseline_edit_note_24).setTitle("Overall Attendance").setView(textEntryView)
+            .setPositiveButton("Save",
+                DialogInterface.OnClickListener { dialog, whichButton ->
+                     sliderValue = input2.value.toString()
+                    val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return@OnClickListener
+                    with (sharedPref.edit()) {
+                        putFloat("overall_criteria", input2.value.toString().toFloat())
+                        apply()
+                    }
+                    val overall_Criteria =  input2.value.toString()
+                    if (sum != 0 && overall_Criteria.isNotEmpty() && per.toString().isNotEmpty()) {
+                        if (per.toFloat() > overall_Criteria.toFloat() + 3) {
+                            binding.overallProgressBarGreen.visibility = View.VISIBLE
+                            binding.overallProgressBarGreen.progress = per.toInt()
+                            binding.overallProgressBarYellow.visibility = View.INVISIBLE
+                            binding.overallProgressBarRed.visibility = View.INVISIBLE
+
+                        } else if (per.toFloat() >= overall_Criteria.toFloat() - 1 && per.toFloat() <= overall_Criteria.toFloat() + 3) {
+                            binding.overallProgressBarYellow.visibility = View.VISIBLE
+                            binding.overallProgressBarYellow.progress = per.toInt()
+                            binding.overallProgressBarGreen.visibility = View.INVISIBLE
+                            binding.overallProgressBarRed.visibility = View.INVISIBLE
+                        } else {
+                            binding.overallProgressBarRed.visibility = View.VISIBLE
+                            binding.overallProgressBarRed.progress = per.toInt()
+                            binding.overallProgressBarYellow.visibility = View.INVISIBLE
+                            binding.overallProgressBarGreen.visibility = View.INVISIBLE
+                        }
+                    }
+                }).setNegativeButton("Cancel",
+                DialogInterface.OnClickListener { dialog, whichButton ->
+                    f=0
+                })
+        alert.show()
+    }
     fun makedialogue( subject_name:String,criteria_percentage:String,status:String,currdatetime:String)
         {
         val alert = AlertDialog.Builder(requireContext())
         val factory = LayoutInflater.from(requireContext())
-
-//text_entry is an Layout XML file containing two text field to display in alert dialog
-
-//text_entry is an Layout XML file containing two text field to display in alert dialog
         val textEntryView: View = factory.inflate(com.kenvent.yourattendance.R.layout.text_entry, null)
-
         val input1 = textEntryView.findViewById<View>(com.kenvent.yourattendance.R.id.EditText1) as EditText
         val input2 = textEntryView.findViewById<View>(com.kenvent.yourattendance.R.id.EditText2) as EditText
-
-
         input1.setText(null, TextView.BufferType.EDITABLE)
         input2.setText(null, TextView.BufferType.EDITABLE)
-
         alert.setIcon(com.kenvent.yourattendance.R.drawable.ic_baseline_edit_note_24).setTitle("Enter the Following details:").setView(textEntryView)
             .setPositiveButton("Save",
                 DialogInterface.OnClickListener { dialog, whichButton ->
-                    if(checkstring(input1.text.toString()) && checkstring(input2.text.toString())){
+                    if(checkstring(input1.text.toString()) && checkstring(input2.text.toString()) && !input2.text.isNullOrEmpty() && !input1.text.isNullOrEmpty() ){
                         this.total_classes = input2.text.toString()
                         this.total_present = input1.text.toString()
-                        Log.i("AlertDialog", "TextEntry 1 Entered " + input1.text.toString())
-                        Log.i("AlertDialog", "TextEntry 2 Entered " + input2.text.toString())
-                        viewModel.updateSubject(
-                            subject_name,
-                            status,
-                            total_classes,
-                            total_present,
-                            currdatetime
-                        )
+                        Log.i("AlertDialog", " TextEntry 1 Entered " + input1.text.toString())
+                        Log.i("AlertDialog", " TextEntry 2 Entered " + input2.text.toString())
+                        viewModel.updateSubject( subject_name, status, total_classes, total_present, currdatetime )
                     }
                     else{
                         Toast.makeText(requireContext(),"Please Enter a Valid Data",Toast.LENGTH_SHORT).show()
                     }
                     /* User clicked OK so do some stuff */
                 }).setNegativeButton("Cancel",
-                DialogInterface.OnClickListener { dialog, whichButton -> /*
+                DialogInterface.OnClickListener { dialog, whichButton ->
+                /*
      * User clicked cancel so do some stuff
      */
                 })
@@ -351,6 +395,15 @@ class HomeFragment : Fragment() {
             }
         }
         return true
+    }
+    fun getonlycharString(str:String): String{
+        var mystring:String =""
+        for(i in str){
+            if(i in 'A'..'Z' || i in 'a'..'z' || i==' '){
+                mystring+=i
+            }
+        }
+        return mystring
     }
 
 }
