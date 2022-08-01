@@ -8,6 +8,8 @@
   [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=for-the-badge&logo=appveyor)](INSERT_UI_LINK_HERE)
   [![PLAYSTORE](https://img.shields.io/badge/Playstore-Download-blue)](https://play.google.com/store/apps/details?id=com.kenvent.yourattendance)
 
+## Problem Statement. 
+Every college has a certain percentage of attendance requirements that must be met, such as 75% or 65%. Since many students miss classes for a variety of reasons (such as family obligations or health issues), it can be difficult for them to figure out how many classes they need to take to meet their requirements. Or other students have an idea of how many lessons they can miss while being safe because they plan their time for other creative stuffs.
 
 ## Functionalities
 - [ ] User can add all the subjects for first time using there ERP Portals.
