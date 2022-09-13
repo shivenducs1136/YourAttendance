@@ -31,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        viewBinding = true
+    }
     dataBinding{
         enabled = true
     }
@@ -65,5 +68,9 @@ dependencies {
     implementation 'com.airbnb.android:lottie:4.2.2' // Lotte animations
 
     implementation  'nl.psdcompany:duo-navigation-drawer:3.0.0'
+
+    //material component
+
+    implementation 'com.google.android.material:material:<version>'
 
 }

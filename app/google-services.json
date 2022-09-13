@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "110392815421",
-    "project_id": "yourattendance-a6173",
-    "storage_bucket": "yourattendance-a6173.appspot.com"
+    "project_number": "935502208805",
+    "project_id": "yourattendance-f985c",
+    "storage_bucket": "yourattendance-f985c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:110392815421:android:4af3ea8da0b04057569f54",
+        "mobilesdk_app_id": "1:935502208805:android:e9f5c35a3195b342fa04cc",
         "android_client_info": {
           "package_name": "com.kenvent.yourattendance"
         }
       },
       "oauth_client": [
         {
-          "client_id": "110392815421-3763v8rgtc67pd060r8qh65hge78u8ev.apps.googleusercontent.com",
+          "client_id": "935502208805-h4vqbva7urql6lti1jmpvjrqj7j1p3gb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kenvent.yourattendance",
+            "certificate_hash": "a0a4a36f76075e2e506cc17f373dade900f8c018"
+          }
+        },
+        {
+          "client_id": "935502208805-1ebfdl2qlk2b8neh21che8gji50ipd03.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDoxPZKzBJOASN8Ja8NfgA91WfBQxDSdBs"
+          "current_key": "AIzaSyACSInnZ-34t11TsvZV-adQHnTJATg7KgA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "110392815421-3763v8rgtc67pd060r8qh65hge78u8ev.apps.googleusercontent.com",
+              "client_id": "935502208805-1ebfdl2qlk2b8neh21che8gji50ipd03.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -16,6 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="130dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="96dp"
+                android:src="@drawable/profile_pic_Place_holder"
+                app:layout_constraintStart_toEndOf="@+id/add_subject_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/Circular" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,6 +144,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_margin="20dp"
                 />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>

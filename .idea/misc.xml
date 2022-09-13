@@ -26,7 +26,21 @@
         <entry key="..\:/Internship Work/YourAttendance/app/src/main/res/layout/subject_items.xml" value="0.23229166666666667" />
         <entry key="..\:/Internship Work/YourAttendance/app/src/main/res/layout/text_entry.xml" value="0.23229166666666667" />
         <entry key="..\:/Internship Work/YourAttendance/app/src/main/res/menu/menu.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/activity_sign_in.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/activity_sign_up.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/activity_splash.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/fragment_add_subject.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/fragment_continue_with_google.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/fragment_dev_contact.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/fragment_feed_back.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/fragment_home.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/fragment_menu.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/item.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/slider.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/subject_items.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/layout/text_entry.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/ASUS/Desktop/YourAttendance/app/src/main/res/menu/menu.xml" value="0.19635416666666666" />
       </map>
     </option>
   </component>
