@@ -6,7 +6,7 @@
 </p>
 
 ---
-[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=for-the-badge&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
+<!-- [![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=for-the-badge&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE)  -->
 [![PLAYSTORE](https://img.shields.io/badge/Playstore-Download-blue?style=for-the-badge&logo=appveyor)](https://play.google.com/store/apps/details?id=com.kenvent.yourattendance)
 
 ## Problem Statement. 
@@ -34,30 +34,35 @@ Every college has a certain percentage of attendance requirements that must be m
 
 ## Instructions to run
 
-* Pre-requisites:
+* __Pre-requisites:__
 	-  Android Studio v4.0
 	-  A working Android physical device or emulator with USB debugging enabled
 
-* Directions to setup/install
-- Clone this repository to your local storage using Git bash:
-```bash
-https://github.com/shivenducs1136/YourAttendance
-```
-- Open this project from Android Studio
-- Connect to an Android physical device or emulator
-- To install the app into your device, run the following using command line tools
-```bash
-gradlew installDebug
-```
+* __Directions to setup/install__
+	- Clone this repository to your local storage using Git bash:
+	```bash
+	https://github.com/shivenducs1136/YourAttendance
+	```
+	- Open this project from Android Studio
+	- Connect to an Android physical device or emulator
+	- To install the app into your device, run the following using command line tools
+	```bash
+	gradlew installDebug
+	```
 
-* Directions to execute
--  To launch hands free, run the following using command line tools
+* __Directions to execute__
+	- To launch hands free, run the following using command line tools
 	```bash
 	adb shell monkey -p com.kenvent.yourattendance -c android.intent.category.LAUNCHER 1
 	```
 
 <br>
 
+## Built with
+- Kotlin
+- XML
+- RoomDB
+- Firebase
 ## Contributors
 * [Shivendu](https://github.com/shivenducs1136)
 
