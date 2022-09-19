@@ -24,10 +24,10 @@ Every college has a certain percentage of attendance requirements that must be m
 ## Usage and screenshots
 
 #### Add a new subject:
-<img src = "https://github.com/manaswii/YourAttendance/blob/ReadMe-updates/imgs/add_subject.gif" width = "230">
+<img src = "https://github.com/shivenducs1136/YourAttendance/blob/main/imgs/add_subject.gif?raw=true" width = "230">
 	
 #### Mark present / absent:
-<img src = "https://github.com/manaswii/YourAttendance/blob/ReadMe-updates/imgs/mark_attendance.gif" width = "230">
+<img src = "https://raw.githubusercontent.com/shivenducs1136/YourAttendance/main/imgs/mark_attendance.gif?raw=true" width = "230">
 
 <br>
 
