@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentContainerView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.kenvent.yourattendance.ui.ContinueWithGoogleFragment
 
@@ -46,6 +48,9 @@ class SplashActivity : AppCompatActivity() {
         else
             splashfun()
 
+
+
+
     }
 
     fun splashfun() {
@@ -56,4 +61,8 @@ class SplashActivity : AppCompatActivity() {
         }, 3000)
 
     }
+
+
+
+
 }

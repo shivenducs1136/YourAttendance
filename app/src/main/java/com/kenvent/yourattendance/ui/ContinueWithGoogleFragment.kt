@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.kenvent.yourattendance.MainActivity
 import com.kenvent.yourattendance.R
+import com.kenvent.yourattendance.SignInActivity
 import com.kenvent.yourattendance.SplashActivity
 import com.kenvent.yourattendance.databinding.FragmentContinueWithGoogleBinding
 import java.lang.Exception
@@ -64,6 +65,17 @@ class ContinueWithGoogleFragment : Fragment() {
             findNavController().popBackStack()
             startActivity(i)
         }
+        binding.emailbtn.setOnClickListener {
+            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return@setOnClickListener
+            with (sharedPref.edit()) {
+                putInt("Flag", 1)
+                apply()
+            }
+            val i = Intent(requireContext(),SignInActivity::class.java)
+            findNavController().popBackStack()
+            startActivity(i)
+        }
+
 
 
     } private fun createRequest() {

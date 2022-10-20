@@ -116,6 +116,38 @@
                 android:layout_marginBottom="60dp"
                 />
 
+            <TextView
+                android:id="@+id/ppr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/architects_daughter"
+                android:maxLines="1"
+                android:text="Or sign in with "
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_SignIn_Button"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintLeft_toLeftOf="@+id/btn_SignIn_Button"
+                app:layout_constraintStart_toStartOf="@+id/btn_SignIn_Button"
+                app:layout_constraintTop_toBottomOf="@+id/btn_SignIn_Button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/architects_daughter"
+                android:maxLines="1"
+                android:text="E-mail"
+                android:id="@+id/emailbtn"
+                android:textColor="#0645AD"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/btn_SignIn_Button"
+                app:layout_constraintLeft_toRightOf="@+id/ppr"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
